@@ -4,10 +4,12 @@ import java.util.Scanner;
 class Person {
     String name;
     String address;
+    int id;
 
-    Person(String name, String address){
+    Person(String name, String address, int id){
         this.name = name;
         this.address = address;
+        this.id = id;
     }
 
     public String GetName() {
@@ -22,9 +24,16 @@ class Person {
         this.address = address;
     }
 
-    
+     public int GetId() {
+        return id;
+    }
+
+    public void SetId(int id) {
+        this.id = id;
+    }
+
     public String ToString(){
-        return "Person[name=" + name + ",address=" + address + "]";
+        return "Person[id=" + id + ",name=" + name + ",address=" + address + "]";
     }
 
 }
@@ -34,8 +43,8 @@ class Student extends Person{
     int year;
     double fee;
 
-    Student(String name, String address, String program, int year, double fee){
-        super(name, address);
+    Student(String name, String address, int id, String program, int year, double fee){
+        super(name, address, id);
         this.program = program;
         this.year = year;
         this.fee = fee;
@@ -68,7 +77,6 @@ class Student extends Person{
     public String ToString(){
         return "Student[" + super.ToString() + ",program=" + program + ",year=" + year + ",fee=" + fee + "]";
     }
-
     
 }
 
@@ -76,8 +84,8 @@ class Staff extends Person{
     String school;
     double pay;
 
-    Staff(String name, String address, String school, double pay){
-        super(name, address);
+    Staff(String name, String address, int id, String school, double pay){
+        super(name, address, id);
         this.school = school;
         this.pay = pay;
     }
@@ -116,7 +124,7 @@ class SchoolBusinessTest {
             System.out.print("Enter student "+ i +"  address: ");
             String address = scanner.nextLine();
 
-            Student student = new Student(name, address, "Computer Science", 2023, 400000);
+            Student student = new Student(name, address, i, "Computer Science", 2023, 400000);
             students[i] = student;
         }
 
@@ -124,7 +132,7 @@ class SchoolBusinessTest {
             System.out.println(student.ToString());
         }
 
-        Staff staff = new Staff("Nguyen Duc Anh", "268 Ly Thuong Kiet", "School of Computer Science", 5000000.0);
+        Staff staff = new Staff("Nguyen Duc Anh", "268 Ly Thuong Kiet", 10, "School of Computer Science", 5000000.0);
         System.out.println(staff.ToString());
     
 
