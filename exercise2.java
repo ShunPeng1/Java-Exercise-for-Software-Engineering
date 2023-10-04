@@ -110,10 +110,10 @@ class SchoolBusinessTest {
         Student [] students = new Student[5];
 
         for (int i = 0 ; i < 5 ; i++) {
-            System.out.print("Enter student name: ");
+            System.out.print("Enter student "+ i +" name: ");
             String name = scanner.nextLine();
 
-            System.out.print("Enter address name: ");
+            System.out.print("Enter student "+ i +"  address: ");
             String address = scanner.nextLine();
 
             Student student = new Student(name, address, "Computer Science", 2023, 400000);
